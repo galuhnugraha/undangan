@@ -17,7 +17,7 @@ function UserPage() {
   useEffect(() => {
   if (!id) return;
 
-    axios.get('/api/website/konfirmasi-kehadiran', {
+      axios.get('/api/konfirmasi', {
       params: { partisipanID: id }
     })
     .then((res) => {
