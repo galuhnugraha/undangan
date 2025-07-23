@@ -1,10 +1,6 @@
 {
   "rewrites": [
     {
-      "source": "/api/konfirmasi",
-      "destination": "/api/konfirmasi.js"
-    },
-    {
       "source": "/(.*)",
       "destination": "/index.html"
     }

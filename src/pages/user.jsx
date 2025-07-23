@@ -9,32 +9,36 @@ import axios from 'axios';
 
 function UserPage() {
   const isMobile = useMediaQuery({ query: '(max-width: 640px)' });
-  const { id } = useParams(); 
+  const { id } = useParams();
 
-  const [data, setData] = useState({});
+  const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-  if (!id) return;
+    if (!id) return;
 
-      axios.get('/api/konfirmasi', {
+    axios.get('/api/konfirmasi', {
       params: { partisipanID: id }
     })
     .then((res) => {
-      setData(res.data.returnValue);
-      console.log(res,"res");
+      if (res.data?.returnValue) {
+        setData(res.data.returnValue);
+      } else {
+        console.warn('API sukses tapi returnValue kosong:', res.data);
+        setData(null);
+      }
     })
     .catch((err) => {
       console.error('Gagal ambil data partisipan:', err);
+      setData(null);
     })
     .finally(() => {
       setLoading(false);
     });
-}, [id]);
-
+  }, [id]);
 
   if (loading) return <div className="loading">Loading...</div>;
-  if (!data) return <div className="loading">Data tidak ditemukan.</div>;
+  if (!data || !data.partisipan_id) return <div className="loading">Data tidak ditemukan.</div>;
 
   return (
     <div className="app-container">
@@ -50,7 +54,7 @@ function UserPage() {
               style={{ width: isMobile ? '160px' : '256px', aspectRatio: '1 / 1' }}
             >
               <QRCode
-                value={`${data.partisipan_id}`} 
+                value={`${data.partisipan_id}`}
                 level="M"
                 style={{ width: '100%', height: '100%' }}
               />
