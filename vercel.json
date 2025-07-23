@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "http://36.67.190.179:7085/BMSApi/$1"
+    }
+  ]
+}
