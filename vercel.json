@@ -1,14 +1,12 @@
 {
   "rewrites": [
     {
-      "source": "/api/:match*",
-      "destination": "/api/:match*"
+      "source": "/api/konfirmasi",
+      "destination": "/api/konfirmasi.js"
     },
     {
       "source": "/(.*)",
       "destination": "/index.html"
     }
-  ],
-  "buildCommand": "npm run build",
-  "outputDirectory": "dist"
+  ]
 }

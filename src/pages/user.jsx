@@ -17,7 +17,7 @@ function UserPage() {
   useEffect(() => {
   if (!id) return;
 
-     axios.get('http://36.67.190.179:7085/BMSApi/api/website/konfirmasi-kehadiran', {
+      axios.get('/api/konfirmasi', {
       params: { partisipanID: id }
     })
     .then((res) => {
