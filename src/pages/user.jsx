@@ -17,10 +17,10 @@ function UserPage() {
   useEffect(() => {
     if (!id) return;
 
-    axios.get('/api/konfirmasi', {
+    axios.get(`https://dev.bintangmotor.co.id/BMSApi/api/website/konfirmasi-kehadiran?partisipanID=${id}`, {
       params: { partisipanID: id }
     })
-    .then((res) => {
+    .then((res) => {  
       if (res.data?.returnValue) {
         setData(res.data.returnValue);
       } else {
