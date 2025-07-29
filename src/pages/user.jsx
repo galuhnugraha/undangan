@@ -22,6 +22,7 @@ function UserPage() {
     })
     .then((res) => {  
       if (res.data?.returnValue) {
+        console.log(res.data.returnValue,"return value");
         setData(res.data.returnValue);
       } else {
         console.warn('API sukses tapi returnValue kosong:', res.data);
@@ -61,8 +62,10 @@ function UserPage() {
             </div>
           </div>
 
+         
           <h4>{data.nama_peserta}</h4>
           <p className="card-subtext">{data.perusahaan}</p>
+           <h4>{data.prioritas}</h4>
         </div>
       </main>
 
