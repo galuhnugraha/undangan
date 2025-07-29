@@ -47,7 +47,14 @@ function UserPage() {
 
       <main className="main-content">
         <div className="card">
-          <h2 className="card-title">Ulang Tahun <br />Bintang Motor</h2>
+          <h2 className="card-title">
+            {data?.nama_event?.includes(" ") ? (
+              <>
+                {data.nama_event.split(" ").slice(0, 2).join(" ")}<br />
+                {data.nama_event.split(" ").slice(2).join(" ")}
+              </>
+            ) : data.nama_event}
+          </h2>
 
           <div className="qr-wrapper">
             <div
@@ -63,9 +70,13 @@ function UserPage() {
           </div>
 
          
-          <h4>{data.nama_peserta}</h4>
-          <p className="card-subtext">{data.perusahaan}</p>
-           <h4>{data.prioritas}</h4>
+          <div className="participant-info">
+            <h3 className="participant-name">{data.nama_peserta}</h3>
+            <p className="participant-company">{data.perusahaan}</p>
+            <span className={`participant-priority ${data.prioritas?.toLowerCase()}`}>
+            {data.prioritas}
+          </span>
+          </div>
         </div>
       </main>
 

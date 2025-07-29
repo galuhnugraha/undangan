@@ -5,13 +5,24 @@
   box-sizing: border-box;
 }
 
+/* body, html {
+  font-family: sans-serif;
+  background-color: #f3f4f6;
+  color: #1f2937;      
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+} */
+
 body, html {
   font-family: sans-serif;
   background-color: #f3f4f6; /* Tailwind gray-100 */
   color: #1f2937;            /* Tailwind gray-800 */
-  min-height: 100vh;
+  min-height: 100dvh;        /* gunakan dynamic viewport height */
   width: 100%;
   overflow-x: hidden;
+  overflow-y: auto;          /* pastikan bisa scroll vertikal */
+  -webkit-overflow-scrolling: touch; /* smooth scroll di iOS */
 }
 
 /* Layout container */
@@ -61,6 +72,17 @@ body, html {
 .section-title {
   margin-top: 25px;
   text-align: center;
+}
+
+.card-title {
+  font-size: 1rem; /* atau 0.9rem untuk lebih kecil */
+  font-weight: bold;
+  text-align: center;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  line-height: 1.3;
+  /* margin-bottom: 1rem; */
+  max-width: 100%;
 }
 
 .button-wrapper {
@@ -129,16 +151,16 @@ body, html {
 }
 
 .card-title {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 600;
-  margin-bottom: 17px;
+  margin-bottom: 14px;
   word-break: break-word;
 }
 
 .qr-wrapper {
   display: flex;
   justify-content: center;
-  margin-bottom: 24px;
+  margin-bottom: 5px;
 }
 
 .qr-box {
@@ -168,7 +190,7 @@ body, html {
   }
 
   .card-title {
-    font-size: 20px;
+    font-size: 18px;
   }
 
   .card-subtext {
@@ -190,4 +212,56 @@ body, html {
   .card {
     padding: 40px;
   }
+}
+
+.participant-info {
+  margin-top: 1rem;
+}
+
+.participant-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.participant-company {
+  font-size: 0.95rem;
+  color: #6b7280;
+  margin-bottom: 4px;
+}
+
+.participant-priority {
+  display: inline-block;
+  padding: 6px 16px;
+  font-size: 0.875rem;
+  border-radius: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+  border: 2px solid transparent;
+}
+
+/* VVIP: Gold */
+.participant-priority.vvip {
+  background-color: #FFD700;  /* Emas */
+  color: #4B3200;              /* Teks kontras */
+  border-color: #facc15;
+}
+
+/* VIP: Merah */
+.participant-priority.vip {
+  background-color: #ef4444;  /* Tailwind red-500 */
+  color: #fff;
+  border-color: #dc2626;      /* red-600 */
+}
+
+/* Regular: Abu */
+.participant-priority.reguler {
+  background-color: #d1d5db !important; /* Tailwind gray-300 */
+  color: #374151;
+  border: 2px solid #9ca3af;
+}
+
+.participant-priority:hover {
+  opacity: 0.9;
+  transition: all 0.2s ease-in-out;
 }
