@@ -214,54 +214,39 @@ body, html {
   }
 }
 
-.participant-info {
-  margin-top: 1rem;
+/* .bordered-left {
+  position: relative;
+  padding-left: 12px;
+  border-left: 24px  solid transparent;
+  border-radius: 4px;
 }
 
-.participant-name {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #111827;
+.bordered-left.vvip {
+  border-left-color: #f59e0b; 
 }
 
-.participant-company {
-  font-size: 0.95rem;
-  color: #6b7280;
-  margin-bottom: 4px;
+.bordered-left.vip {
+  border-left-color: #ef4444; 
 }
 
-.participant-priority {
-  display: inline-block;
-  padding: 6px 16px;
-  font-size: 0.875rem;
-  border-radius: 20px;
-  font-weight: 600;
-  text-transform: uppercase;
-  border: 2px solid transparent;
+.bordered-left.reguler {
+  border-left-color: #9ca3af;
+}  */
+
+.bordered-left {
+  position: relative;
+  border-left: 18px solid transparent;  /* 2x lebih tebal dari 12px */
+  border-radius: 4px;
 }
 
-/* VVIP: Gold */
-.participant-priority.vvip {
-  background-color: #FFD700;  /* Emas */
-  color: #4B3200;              /* Teks kontras */
-  border-color: #facc15;
+.bordered-left.vvip {
+  border-left-color: #f59e0b; /* gold */
 }
 
-/* VIP: Merah */
-.participant-priority.vip {
-  background-color: #ef4444;  /* Tailwind red-500 */
-  color: #fff;
-  border-color: #dc2626;      /* red-600 */
+.bordered-left.vip {
+  border-left-color: #ef4444; /* red */
 }
 
-/* Regular: Abu */
-.participant-priority.reguler {
-  background-color: #d1d5db !important; /* Tailwind gray-300 */
-  color: #374151;
-  border: 2px solid #9ca3af;
-}
-
-.participant-priority:hover {
-  opacity: 0.9;
-  transition: all 0.2s ease-in-out;
+.bordered-left.reguler {
+  border-left-color: #9ca3af; /* gray */
 }

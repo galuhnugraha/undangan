@@ -46,7 +46,7 @@ function UserPage() {
       <Header />
 
       <main className="main-content">
-        <div className="card">
+        <div className={`card bordered-left ${data.prioritas?.toLowerCase()}`}>
           <h2 className="card-title">
             {data?.nama_event?.includes(" ") ? (
               <>
@@ -70,13 +70,8 @@ function UserPage() {
           </div>
 
          
-          <div className="participant-info">
-            <h3 className="participant-name">{data.nama_peserta}</h3>
-            <p className="participant-company">{data.perusahaan}</p>
-            <span className={`participant-priority ${data.prioritas?.toLowerCase()}`}>
-            {data.prioritas}
-          </span>
-          </div>
+        <h3 className="participant-name">{data.nama_peserta}</h3>
+  <p className="participant-company">{data.perusahaan}</p>
         </div>
       </main>
 
